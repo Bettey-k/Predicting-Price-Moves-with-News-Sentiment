@@ -1,98 +1,60 @@
-📘 Task 1 — News EDA Notebook Overview
+# News Headlines EDA
 
-🔍 Objectives
+## Overview
+This notebook performs an exploratory data analysis (EDA) on financial news headlines data, focusing on understanding the dataset's structure, content, and patterns.
 
-Understand the structure and distribution of news headlines
+## Dataset
+- **Source**: `data/raw_analyst_ratings.csv`
+- **Size**: ~1.4 million entries
+- **Columns**:
+  - `headline`: News headline text
+  - `url`: Source URL
+  - `publisher`: News publisher/organization
+  - `date`: Publication timestamp
+  - `stock`: Stock ticker symbol
 
-Analyze publishers, publication patterns, and headline lengths
+## Key Analyses
+1. **Data Loading & Cleaning**:
+   - Handles missing values and date parsing
+   - Removes unnecessary columns
+   - Converts date strings to datetime objects
 
-Extract meaningful text patterns
+2. **Basic Statistics**:
+   - Dataset dimensions and data types
+   - Temporal distribution of news
+   - Most active publishers
+   - Most covered stocks
 
-Identify major news topics using NLP topic modeling
+3. **Text Analysis**:
+   - Headline length analysis (characters and words)
+   - Common words and phrases
+   - Publisher-specific patterns
 
-📂 Dataset Columns
+4. **Visualizations**:
+   - Top publishers by article count
+   - Distribution of headline lengths
+   - Publication frequency over time
+   - Stock coverage distribution
 
-headline — news headline
+## Dependencies
+- Python 3.x
+- pandas
+- numpy
+- matplotlib
+- seaborn
 
-url — article link
+## Usage
+1. Ensure dependencies are installed
+2. Update the input file path if needed
+3. Run the notebook cells sequentially
 
-publisher — source or author
+## Notes
+- The dataset contains financial news headlines from various sources
+- Date range: [Start Date] to [End Date] (to be filled based on your data)
+- Focuses on English-language financial news
 
-date — publication timestamp
-
-stock — related stock ticker
-
-🧪 Key Steps in This Notebook
-1️⃣ Data Cleaning
-
-Convert date to datetime
-
-Remove missing headlines
-
-Standardize text fields
-
-2️⃣ Headline Length Analysis
-
-Character and word length per headline
-
-Descriptive statistics
-
-Identify short/long headline patterns
-
-3️⃣ Publisher Analysis
-
-Count articles per publisher
-
-Visualize top publishers
-
-Extract domains from email-style publishers
-
-4️⃣ Time Series Analysis
-
-Articles per day
-
-Articles by weekday
-
-Articles by hour (0–23)
-
-5️⃣ Text Analysis (Topic Modeling)
-
-Using LDA (Latent Dirichlet Allocation):
-
-Identify major themes in headlines
-
-Extract topic keywords
-
-Reveal patterns like:
-
-analyst ratings
-
-price targets
-
-FDA approvals
-
-earnings reports
-
-product launches
-
-🧰 Tools Used
-
-pandas
-
-numpy
-
-matplotlib, seaborn
-
-sklearn (CountVectorizer & LDA)
-
-✅ Outcome
-
-This notebook provides a comprehensive understanding of the news dataset, revealing:
-
-Who publishes the most news
-
-When news is released
-
-How long headlines are
-
-What main topics dominate the financial news
+## Future Work
+- Sentiment analysis of headlines
+- Correlation with stock price movements
+- Topic modeling of news content
+- Advanced time series analysis
