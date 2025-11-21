@@ -16,3 +16,8 @@ scikit-learn
 pytest
 pytest-cov
 flake8
+
+yfinance
+TA-Lib
+pynance
+
