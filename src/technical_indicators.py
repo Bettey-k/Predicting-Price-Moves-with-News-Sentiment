@@ -1,31 +1,36 @@
-
 import pandas as pd
+import numpy as np
 import talib
 
-def add_sma(df: pd.DataFrame, close_col="Close") -> pd.DataFrame:
-    df = df.copy()
-    close = df[close_col].values
-    df["SMA_20"] = talib.SMA(close, 20)
-    df["SMA_50"] = talib.SMA(close, 50)
-    return df
+def add_all_indicators(df):
+    """Add technical indicators to the DataFrame."""
+    if df.empty:
+        # Return empty DataFrame with indicator columns
+        return pd.DataFrame(columns=['Open', 'High', 'Low', 'Close', 'Volume', 
+                                   'SMA_20', 'SMA_50', 'RSI_14', 
+                                   'MACD', 'MACD_signal', 'MACD_hist'])
 
-def add_rsi(df: pd.DataFrame, close_col="Close") -> pd.DataFrame:
-    df = df.copy()
-    close = df[close_col].values
-    df["RSI_14"] = talib.RSI(close, 14)
-    return df
+    # Ensure we have all required columns
+    required_cols = ['Open', 'High', 'Low', 'Close', 'Volume']
+    if not all(col in df.columns for col in required_cols):
+        raise ValueError(f"Missing required columns. Need: {required_cols}")
 
-def add_macd(df: pd.DataFrame, close_col="Close") -> pd.DataFrame:
-    df = df.copy()
-    close = df[close_col].values
-    macd, macd_signal, macd_hist = talib.MACD(close)
-    df["MACD"] = macd
-    df["MACD_signal"] = macd_signal
-    df["MACD_hist"] = macd_hist
-    return df
+    # Convert to numpy arrays with float64 dtype for TA-Lib
+    close = np.asarray(df['Close'], dtype=np.float64)
+    high = np.asarray(df['High'], dtype=np.float64)
+    low = np.asarray(df['Low'], dtype=np.float64)
+    volume = np.asarray(df['Volume'], dtype=np.float64)
 
-def add_all_indicators(df: pd.DataFrame) -> pd.DataFrame:
-    df = add_sma(df)
-    df = add_rsi(df)
-    df = add_macd(df)
+    # Calculate indicators
+    df = df.copy()
+    df['SMA_20'] = talib.SMA(close, timeperiod=20)
+    df['SMA_50'] = talib.SMA(close, timeperiod=50)
+    df['RSI_14'] = talib.RSI(close, timeperiod=14)
+    
+    # MACD
+    macd, signal, hist = talib.MACD(close)
+    df['MACD'] = macd
+    df['MACD_signal'] = signal
+    df['MACD_hist'] = hist
+    
     return df
