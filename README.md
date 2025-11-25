@@ -21,6 +21,12 @@ A comprehensive analysis platform that combines financial news sentiment with te
   - Volatility Measures
   - Risk-Adjusted Returns (Sharpe Ratio, etc.)
 
+### 🔄 Correlation Analysis Module
+- **Sentiment-Return Correlation**: Measure relationship between news sentiment and stock returns
+- **Time-series Analysis**: Visualize sentiment and price movements over time
+- **Statistical Testing**: Validate significance of sentiment-return relationships
+- **Scatter Plots**: Explore correlation patterns between sentiment and price changes
+
 ## 🏗️ Project Structure
 
 ```
@@ -30,7 +36,8 @@ Predicting-Price-Moves-with-News-Sentiment/
 │   └── processed/             # Processed datasets
 ├── notebooks/                 # Jupyter notebooks
 │   ├── 01_news_eda.ipynb      # News analysis and exploration
-│   └── 02_technical_analysis.ipynb  # Stock price analysis
+│   ├── 02_technical_analysis.ipynb  # Stock price analysis
+│   └── 03_task3_correlation.ipynb   # Sentiment-return correlation analysis
 ├── src/                       # Source code
 │   ├── data_loading.py        # Data loading utilities
 │   ├── technical_indicators.py # Technical analysis functions
