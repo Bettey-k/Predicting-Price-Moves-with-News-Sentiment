@@ -24,6 +24,16 @@ This directory contains Jupyter notebooks for analyzing stock price movements an
   - Visualizes price action and indicators
   - Computes and analyzes return metrics
 
+### 03_task3_correlation.ipynb
+- **Purpose**: Analyze correlation between news sentiment and stock returns
+- **Features**:
+  - Integrates news sentiment analysis with stock price data
+  - Calculates daily sentiment scores from news headlines
+  - Computes daily stock returns
+  - Measures correlation between sentiment and returns
+  - Visualizes the relationship through time series and scatter plots
+  - Provides statistical analysis of sentiment-return relationship
+  
 ## Dependencies
 
 - Python 3.7+
@@ -39,8 +49,8 @@ This directory contains Jupyter notebooks for analyzing stock price movements an
 
 1. Ensure all dependencies are installed (see main README for setup instructions)
 2. Place your data files in the appropriate directories:
-   - News data: `../data/raw/`
-   - Price data: `../data/raw/`
+   - News data: `../data/`
+   - Price data: `../data/`
 3. Run the notebooks in order for complete analysis
 
 ## Data Sources
@@ -59,11 +69,3 @@ This directory contains Jupyter notebooks for analyzing stock price movements an
 - All data paths are relative to the project root directory
 - Ensure you have sufficient memory for processing large news datasets
 - Some visualizations may take time to render with large datasets
-
-## Future Work
-
-- Implement real-time news sentiment analysis
-- Add more advanced technical indicators
-- Develop predictive models combining news sentiment and technical indicators
-- Create interactive dashboards for visualization
-- Expand to multiple stocks and comparative analysis
